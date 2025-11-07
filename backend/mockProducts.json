@@ -1,150 +1,142 @@
 [
   {
-    "name": "Wireless Bluetooth Headphones",
-    "price": 79.99,
-    "description": "Premium noise-cancelling wireless headphones with 30-hour battery life. Perfect for music lovers and professionals.",
-    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop",
+    "name": "Wireless Bluetooth Earbuds",
+    "price": 89.99,
+    "description": "True wireless earbuds with active noise cancellation and 24-hour battery life. Perfect for music and calls on the go.",
+    "image": "https://www.beatsbydre.com/content/dam/beats/web/product/earbuds/solo-buds/pdp/product-carousel/matte-black/black-01-solobuds.jpg.large.2x.jpg",
     "inStock": true
   },
   {
-    "name": "Smart Watch Pro",
-    "price": 249.99,
-    "description": "Feature-rich smartwatch with heart rate monitoring, GPS, and water resistance. Track your fitness goals effortlessly.",
-    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop",
-    "inStock": true
-  },
-  {
-    "name": "Laptop Stand Aluminum",
-    "price": 39.99,
-    "description": "Ergonomic aluminum laptop stand that improves posture and increases desk space. Adjustable height and angle.",
-    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
-    "inStock": true
-  },
-  {
-    "name": "Mechanical Keyboard RGB",
-    "price": 129.99,
-    "description": "Premium mechanical keyboard with RGB backlighting, Cherry MX switches, and programmable keys. Perfect for gaming and typing.",
+    "name": "Gaming Mechanical Keyboard",
+    "price": 149.99,
+    "description": "RGB mechanical gaming keyboard with customizable keys and rapid response switches for competitive gaming.",
     "image": "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=500&h=500&fit=crop",
     "inStock": true
   },
   {
-    "name": "Wireless Mouse Ergonomic",
-    "price": 49.99,
-    "description": "Comfortable ergonomic wireless mouse with precision tracking and long battery life. Designed for extended use.",
-    "image": "https://images.unsplash.com/photo-1527814054287-6b5f485a1bf1?w=500&h=500&fit=crop",
+    "name": "Smart Fitness Tracker",
+    "price": 79.99,
+    "description": "Advanced fitness tracker with heart rate monitoring, sleep analysis, and 7-day battery life.",
+    "image": "https://images.unsplash.com/photo-1576243345690-4e4b79b63288?w=500&h=500&fit=crop",
     "inStock": true
   },
   {
-    "name": "USB-C Hub 7-in-1",
+    "name": "Wireless Charging Stand",
     "price": 34.99,
-    "description": "Multi-port USB-C hub with HDMI, USB 3.0, SD card reader, and power delivery. Expand your connectivity options.",
-    "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?w=500&h=500&fit=crop",
+    "description": "Fast wireless charging stand compatible with smartphones and earbuds. Sleek design with LED indicators.",
+    "image": "https://www.portronics.com/cdn/shop/files/FLUX_wireless_phone_charger_stand.jpg?v=1734939820",
     "inStock": true
   },
   {
-    "name": "Cotton T-Shirt Classic",
-    "price": 24.99,
-    "description": "Soft, breathable 100% cotton t-shirt. Available in multiple colors. Comfortable fit for everyday wear.",
-    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop",
+    "name": "Noise Cancelling Headphones",
+    "price": 199.99,
+    "description": "Premium over-ear headphones with advanced noise cancellation and 30-hour battery life.",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop",
     "inStock": true
   },
   {
-    "name": "Denim Jeans Slim Fit",
-    "price": 59.99,
-    "description": "Classic slim-fit denim jeans with stretch fabric for comfort. Perfect for casual and semi-formal occasions.",
-    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&h=500&fit=crop",
-    "inStock": true
-  },
-  {
-    "name": "Running Shoes Lightweight",
-    "price": 89.99,
-    "description": "Lightweight running shoes with cushioned sole and breathable mesh upper. Ideal for jogging and daily workouts.",
-    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop",
-    "inStock": true
-  },
-  {
-    "name": "Backpack Laptop 15.6\"",
-    "price": 54.99,
-    "description": "Durable laptop backpack with padded compartment, multiple pockets, and water-resistant material. Perfect for students and professionals.",
+    "name": "Laptop Backpack Professional",
+    "price": 69.99,
+    "description": "Durable laptop backpack with anti-theft design, USB charging port, and water-resistant material.",
     "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop",
     "inStock": true
   },
   {
-    "name": "The Great Gatsby",
-    "price": 12.99,
-    "description": "Classic American novel by F. Scott Fitzgerald. A timeless tale of the Jazz Age and the American Dream.",
-    "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&h=500&fit=crop",
+    "name": "Smart Home Speaker",
+    "price": 129.99,
+    "description": "Voice-controlled smart speaker with premium sound quality and smart home integration capabilities.",
+    "image": "https://images.unsplash.com/photo-1589003077984-894e133dabab?w=500&h=500&fit=crop",
     "inStock": true
   },
   {
-    "name": "JavaScript: The Definitive Guide",
+    "name": "Ergonomic Office Chair",
+    "price": 299.99,
+    "description": "High-back ergonomic office chair with lumbar support, adjustable arms, and breathable mesh material.",
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=500&fit=crop",
+    "inStock": true
+  },
+  {
+    "name": "4K Ultra HD Monitor",
+    "price": 399.99,
+    "description": "27-inch 4K UHD monitor with HDR support, thin bezels, and adjustable stand for professional work.",
+    "image": "https://www.designinfo.in/wp-content/uploads/2023/07/lg-32un650-315-inch-4k1-10.webp",
+    "inStock": true
+  },
+  {
+    "name": "Portable Power Bank",
     "price": 49.99,
-    "description": "Comprehensive guide to JavaScript programming. Essential reading for web developers and programmers.",
-    "image": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=500&h=500&fit=crop",
+    "description": "20000mAh portable power bank with fast charging technology and multiple USB ports for all devices.",
+    "image": "https://images-cdn.ubuy.co.in/644104b6a531bf5a794214b3-portable-charger-power-bank-10000mah-2.jpg",
+    "inStock": false
+  },
+  {
+    "name": "Wireless Gaming Mouse",
+    "price": 89.99,
+    "description": "High-precision wireless gaming mouse with customizable DPI, RGB lighting, and long battery life.",
+    "image": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&h=500&fit=crop",
     "inStock": true
   },
   {
-    "name": "Coffee Maker Programmable",
-    "price": 79.99,
-    "description": "12-cup programmable coffee maker with auto-shutoff and brew strength control. Start your day right.",
-    "image": "https://images.unsplash.com/photo-1517668808823-f6c0c55752a4?w=500&h=500&fit=crop",
-    "inStock": true
-  },
-  {
-    "name": "Desk Lamp LED",
-    "price": 29.99,
-    "description": "Modern LED desk lamp with adjustable brightness and color temperature. Eye-friendly lighting for work and study.",
-    "image": "https://images.unsplash.com/photo-1507473885765-e6ed557f8bf4?w=500&h=500&fit=crop",
-    "inStock": true
-  },
-  {
-    "name": "Yoga Mat Premium",
-    "price": 34.99,
-    "description": "Non-slip premium yoga mat with extra cushioning. Perfect for yoga, pilates, and floor exercises.",
-    "image": "https://images.unsplash.com/photo-1601925260368-ae2f83d49e5e?w=500&h=500&fit=crop",
-    "inStock": true
-  },
-  {
-    "name": "Dumbbell Set Adjustable",
+    "name": "Smartphone Gimbal Stabilizer",
     "price": 119.99,
-    "description": "Adjustable dumbbell set with weight range from 5-50 lbs. Space-saving design for home gyms.",
-    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=500&fit=crop",
+    "description": "3-axis smartphone gimbal for smooth video recording and professional-grade stabilization.",
+    "image": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=500&h=500&fit=crop",
     "inStock": true
   },
   {
-    "name": "Water Bottle Insulated",
-    "price": 24.99,
-    "description": "Stainless steel insulated water bottle keeps drinks cold for 24 hours or hot for 12 hours. BPA-free and leak-proof.",
-    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&h=500&fit=crop",
+    "name": "Bluetooth Portable Speaker",
+    "price": 59.99,
+    "description": "Waterproof Bluetooth speaker with 360-degree sound and 12-hour playtime for outdoor adventures.",
+    "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop",
     "inStock": true
   },
   {
-    "name": "Wireless Charging Pad",
-    "price": 19.99,
-    "description": "Fast wireless charging pad compatible with Qi-enabled devices. Sleek design with LED indicator.",
+    "name": "USB-C Docking Station",
+    "price": 89.99,
+    "description": "Multi-port USB-C docking station with 4K HDMI, Ethernet, USB 3.0, and power delivery for laptops.",
+    "image": "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=500&h=500&fit=crop",
+    "inStock": false
+  },
+  {
+    "name": "Wireless Earbuds Sports",
+    "price": 79.99,
+    "description": "Sweat-proof wireless earbuds with secure fit and 8-hour battery life, perfect for workouts and running.",
+    "image": "https://avshack.in/cdn/shop/products/JBuds_Air_Sport-01.jpg?v=1665824142&width=1500",
+    "inStock": true
+  },
+  {
+    "name": "Laptop Cooling Pad",
+    "price": 39.99,
+    "description": "Adjustable laptop cooling pad with quiet fans and ergonomic design to prevent overheating.",
+    "image": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=500&h=500&fit=crop",
+    "inStock": true
+  },
+  {
+    "name": "Smart Desk Lamp",
+    "price": 49.99,
+    "description": "Wi-Fi enabled smart desk lamp with color temperature adjustment and voice control compatibility.",
+    "image": "https://images-cdn.ubuy.co.in/636721af3882f87dce2b75a8-led-desk-lamp-with-smart-features-clock.jpg",
+    "inStock": true
+  },
+  {
+    "name": "External SSD 1TB",
+    "price": 129.99,
+    "description": "High-speed 1TB external SSD with USB-C connectivity for fast data transfer and backup.",
+    "image": "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=500&h=500&fit=crop",
+    "inStock": true
+  },
+  {
+    "name": "Wireless Presenter Remote",
+    "price": 29.99,
+    "description": "Professional wireless presenter with laser pointer and smooth slide control for presentations.",
     "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
     "inStock": true
   },
   {
-    "name": "Webcam HD 1080p",
+    "name": "Tablet Keyboard Case",
     "price": 69.99,
-    "description": "Full HD 1080p webcam with autofocus and built-in microphone. Perfect for video calls and streaming.",
-    "image": "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=500&h=500&fit=crop",
-    "inStock": true
-  },
-  {
-    "name": "Monitor Stand Wooden",
-    "price": 44.99,
-    "description": "Elegant wooden monitor stand with storage drawer. Raises monitor to eye level and organizes your desk.",
-    "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
-    "inStock": true
-  },
-  {
-    "name": "Tablet Stand Adjustable",
-    "price": 27.99,
-    "description": "Adjustable tablet stand with 360-degree rotation. Compatible with all tablet sizes. Perfect for reading and video calls.",
+    "description": "Protective keyboard case with backlit keys and multiple viewing angles for tablets.",
     "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&h=500&fit=crop",
-    "inStock": true
+    "inStock": false
   }
 ]
-

@@ -1,15 +1,64 @@
-const LoadingSpinner = ({ size = 'md' }) => {
-  const sizeClasses = {
-    sm: 'w-4 h-4',
-    md: 'w-8 h-8',
-    lg: 'w-12 h-12'
-  };
+import React from 'react';
+import styled from 'styled-components';
 
+const Loader = () => {
   return (
-    <div className="flex justify-center items-center">
-      <div className={`${sizeClasses[size]} border-4 border-gray-200 border-t-blue-600 rounded-full animate-spin`}></div>
-    </div>
+    <StyledWrapper>
+      <span className="loader" />
+    </StyledWrapper>
   );
-};
+}
 
-export default LoadingSpinner;
+const StyledWrapper = styled.div`
+  .loader {
+    width: 48px;
+    height: 48px;
+    display: block;
+    margin: 15px auto;
+    position: relative;
+    color: #000;
+    box-sizing: border-box;
+    animation: rotation_19 1s linear infinite;
+  }
+
+  .loader::after,
+  .loader::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 0;
+    background-color: #000;
+    border-radius: 50%;
+    animation: scale50 1s infinite ease-in-out;
+  }
+
+  .loader::before {
+    top: auto;
+    bottom: 0;
+    background-color: #6B7280;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes rotation_19 {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes scale50 {
+    0%, 100% {
+      transform: scale(0);
+    }
+
+    50% {
+      transform: scale(1);
+    }
+  }`;
+
+export default Loader;

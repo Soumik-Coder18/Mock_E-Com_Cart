@@ -1,87 +1,109 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import cartService from '../services/cartService';
 
 const CartContext = createContext();
 
-const cartReducer = (state, action) => {
-  switch (action.type) {
-    case 'ADD_TO_CART':
-      return {
-        ...state,
-        items: [...state.items, action.payload],
-        total: state.total + action.payload.price * action.payload.quantity
-      };
-    case 'REMOVE_FROM_CART':
-      return {
-        ...state,
-        items: state.items.filter(item => item.id !== action.payload),
-        total: state.items.reduce((total, item) => {
-          if (item.id !== action.payload) return total + item.price * item.quantity;
-          return total;
-        }, 0)
-      };
-    case 'UPDATE_QUANTITY':
-      return {
-        ...state,
-        items: state.items.map(item =>
-          item.id === action.payload.id
-            ? { ...item, quantity: action.payload.quantity }
-            : item
-        ),
-        total: state.items.reduce((total, item) => {
-          if (item.id === action.payload.id) {
-            return total + item.price * action.payload.quantity;
-          }
-          return total + item.price * item.quantity;
-        }, 0)
-      };
-    case 'CLEAR_CART':
-      return {
-        items: [],
-        total: 0
-      };
-    default:
-      return state;
-  }
-};
-
 export const CartProvider = ({ children }) => {
-  const [cart, dispatch] = useReducer(cartReducer, {
-    items: [],
-    total: 0
-  });
+  const [cart, setCart] = useState({ items: [], totalPrice: 0 });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const addToCart = (product, quantity = 1) => {
-    dispatch({
-      type: 'ADD_TO_CART',
-      payload: { ...product, quantity }
-    });
+  // Fetch cart from backend
+  const fetchCart = useCallback(async () => {
+    try {
+      setLoading(true);
+      // cartService now returns the cart data directly
+      const cartData = await cartService.getCart();
+      setCart(cartData || { items: [], totalPrice: 0 });
+      setError(null);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to fetch cart');
+      console.error('Error fetching cart:', err);
+      // Don't throw, just log the error
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  // Fetch cart on mount
+  useEffect(() => {
+    fetchCart();
+  }, [fetchCart]);
+
+  const addToCart = async (productId, quantity = 1) => {
+    try {
+      setLoading(true);
+      setError(null);
+      await cartService.addToCart(productId, quantity);
+      await fetchCart(); // Refresh cart after adding
+    } catch (err) {
+      const errorMessage = err.response?.data?.message || 'Failed to add to cart';
+      setError(errorMessage);
+      console.error('Error adding to cart:', err);
+      throw new Error(errorMessage);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const removeFromCart = (productId) => {
-    dispatch({
-      type: 'REMOVE_FROM_CART',
-      payload: productId
-    });
+  const removeFromCart = async (productId) => {
+    try {
+      setLoading(true);
+      setError(null);
+      await cartService.removeFromCart(productId);
+      await fetchCart(); // Refresh cart after removing
+    } catch (err) {
+      const errorMessage = err.response?.data?.message || 'Failed to remove from cart';
+      setError(errorMessage);
+      console.error('Error removing from cart:', err);
+      throw new Error(errorMessage);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const updateQuantity = (productId, quantity) => {
-    dispatch({
-      type: 'UPDATE_QUANTITY',
-      payload: { id: productId, quantity }
-    });
+  const updateQuantity = async (productId, quantity) => {
+    try {
+      setLoading(true);
+      setError(null);
+      await cartService.updateCartItem(productId, quantity);
+      await fetchCart(); // Refresh cart after updating
+    } catch (err) {
+      const errorMessage = err.response?.data?.message || 'Failed to update quantity';
+      setError(errorMessage);
+      console.error('Error updating quantity:', err);
+      throw new Error(errorMessage);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const clearCart = () => {
-    dispatch({ type: 'CLEAR_CART' });
+  const clearCart = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      await cartService.clearCart();
+      await fetchCart(); // Refresh cart after clearing
+    } catch (err) {
+      const errorMessage = err.response?.data?.message || 'Failed to clear cart';
+      setError(errorMessage);
+      console.error('Error clearing cart:', err);
+      throw new Error(errorMessage);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <CartContext.Provider value={{
       cart,
+      loading,
+      error,
       addToCart,
       removeFromCart,
       updateQuantity,
-      clearCart
+      clearCart,
+      refetchCart: fetchCart
     }}>
       {children}
     </CartContext.Provider>
