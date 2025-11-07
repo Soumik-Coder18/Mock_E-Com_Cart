@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useCart } from '../../hooks/useCart';
 import LoadingSpinner from '../common/LoadingSpinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBagShopping, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const ProductDetail = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
@@ -9,78 +11,112 @@ const ProductDetail = ({ product }) => {
   const handleAddToCart = async () => {
     try {
       await addToCart(product._id, quantity);
-      alert('Product added to cart successfully!');
     } catch (error) {
       alert('Failed to add product to cart');
     }
   };
 
+  const incrementQuantity = () => {
+    if (quantity < 10) setQuantity(quantity + 1);
+  };
+
+  const decrementQuantity = () => {
+    if (quantity > 1) setQuantity(quantity - 1);
+  };
+
   if (!product) {
     return (
-      <div className="flex justify-center items-center py-12">
+      <div className="flex justify-center items-center py-32">
         <LoadingSpinner size="lg" />
       </div>
     );
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Product Image */}
-        <div>
+        <div className="relative">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-96 object-cover rounded-lg"
+            className="w-full h-[600px] object-cover bg-gray-50"
           />
+          {!product.inStock && (
+            <div className="absolute top-6 left-6 bg-black text-white px-4 py-2 text-sm font-light tracking-wide">
+              OUT OF STOCK
+            </div>
+          )}
         </div>
 
         {/* Product Info */}
-        <div className="space-y-6">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <div className="space-y-8">
+          <div className="space-y-4">
+            <h1 className="text-5xl font-light text-black tracking-tight leading-tight">
               {product.name}
             </h1>
-            <p className="text-gray-600 text-lg">{product.description}</p>
+            <p className="text-lg text-gray-600 leading-relaxed font-light tracking-wide">
+              {product.description}
+            </p>
           </div>
 
-          <div className="text-4xl font-bold text-gray-900">
+          <div className="text-4xl font-light text-black tracking-tight">
             ${product.price}
           </div>
 
-          <div className="flex items-center space-x-2">
-            <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+          <div className="flex items-center space-x-4">
+            <span className={`inline-flex items-center px-4 py-2 text-sm font-light tracking-wide border ${
               product.inStock 
-                ? 'bg-green-100 text-green-800' 
-                : 'bg-red-100 text-red-800'
+                ? 'border-black text-black' 
+                : 'border-gray-300 text-gray-400'
             }`}>
-              {product.inStock ? 'In Stock' : 'Out of Stock'}
+              {product.inStock ? 'Available' : 'Out of Stock'}
             </span>
           </div>
 
           {product.inStock && (
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
-                <label className="text-gray-700 font-medium">Quantity:</label>
-                <select
-                  value={quantity}
-                  onChange={(e) => setQuantity(parseInt(e.target.value))}
-                  className="border border-gray-300 rounded-md px-3 py-2"
-                >
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-                    <option key={num} value={num}>
-                      {num}
-                    </option>
-                  ))}
-                </select>
+            <div className="space-y-6 pt-4">
+              {/* Quantity Selector */}
+              <div className="flex items-center space-x-6">
+                <label className="text-black font-light tracking-wide text-lg">Quantity:</label>
+                <div className="flex items-center border border-gray-300">
+                  <button
+                    onClick={decrementQuantity}
+                    disabled={quantity <= 1}
+                    className="w-12 h-12 flex items-center justify-center text-gray-600 hover:text-black disabled:text-gray-300 disabled:cursor-not-allowed transition-colors"
+                  >
+                    <FontAwesomeIcon icon={faMinus} className="text-sm" />
+                  </button>
+                  <span className="w-12 h-12 flex items-center justify-center text-black font-light text-lg border-l border-r border-gray-300">
+                    {quantity}
+                  </span>
+                  <button
+                    onClick={incrementQuantity}
+                    disabled={quantity >= 10}
+                    className="w-12 h-12 flex items-center justify-center text-gray-600 hover:text-black disabled:text-gray-300 disabled:cursor-not-allowed transition-colors"
+                  >
+                    <FontAwesomeIcon icon={faPlus} className="text-sm" />
+                  </button>
+                </div>
               </div>
 
+              {/* Add to Cart Button */}
               <button
                 onClick={handleAddToCart}
                 disabled={loading}
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                className="group w-full bg-black text-white py-4 px-8 font-light tracking-wide hover:bg-gray-800 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-500 flex items-center justify-center gap-3"
               >
-                {loading ? 'Adding to Cart...' : 'Add to Cart'}
+                {loading ? (
+                  <LoadingSpinner size="sm" />
+                ) : (
+                  <>
+                    <FontAwesomeIcon 
+                      icon={faBagShopping} 
+                      className="text-sm group-hover:scale-110 transition-transform duration-300" 
+                    />
+                    <span>Add to Cart</span>
+                  </>
+                )}
               </button>
             </div>
           )}

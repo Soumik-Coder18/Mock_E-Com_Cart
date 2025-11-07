@@ -28,7 +28,7 @@ const ProductDetailPage = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-64">
+      <div className="flex justify-center items-center min-h-96">
         <LoadingSpinner size="lg" />
       </div>
     );
@@ -36,10 +36,19 @@ const ProductDetailPage = () => {
 
   if (error) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-          {error}
+      <div className="max-w-4xl mx-auto px-6 py-24 text-center">
+        <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <span className="text-2xl text-gray-400">!</span>
         </div>
+        <h2 className="text-3xl font-light text-black tracking-tight mb-4">Product Not Found</h2>
+        <div className="w-16 h-px bg-gray-300 mx-auto mb-6"></div>
+        <p className="text-gray-600 font-light tracking-wide mb-8">{error}</p>
+        <a 
+          href="/products" 
+          className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 font-light tracking-wide hover:bg-gray-800 transition-all duration-500"
+        >
+          <span>Back to Collection</span>
+        </a>
       </div>
     );
   }

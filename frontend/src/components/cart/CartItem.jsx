@@ -1,4 +1,7 @@
 import { useCart } from '../../hooks/useCart';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import LoadingSpinner from '../common/LoadingSpinner';
 
 const CartItem = ({ item }) => {
   const { updateQuantity, removeFromCart, loading } = useCart();
@@ -26,50 +29,62 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow">
-      <img
-        src={product.image}
-        alt={product.name}
-        className="w-20 h-20 object-cover rounded"
-      />
+    <div className="flex items-center space-x-8 bg-white p-8 border-b border-gray-100 group hover:bg-gray-50 transition-all duration-500">
+      {/* Product Image */}
+      <div className="flex-shrink-0">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-32 h-32 object-cover bg-gray-50"
+        />
+      </div>
       
-      <div className="flex-1">
-        <h3 className="text-lg font-semibold text-gray-800">
+      {/* Product Info */}
+      <div className="flex-1 space-y-2">
+        <h3 className="text-2xl font-light text-black tracking-wide">
           {product.name}
         </h3>
-        <p className="text-gray-600">${product.price}</p>
+        <p className="text-lg text-gray-600 font-light">${product.price}</p>
       </div>
 
-      <div className="flex items-center space-x-2">
+      {/* Quantity Controls */}
+      <div className="flex items-center space-x-4">
         <button
           onClick={() => handleQuantityChange(item.quantity - 1)}
           disabled={item.quantity <= 1 || loading}
-          className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded disabled:opacity-50"
+          className="w-12 h-12 flex items-center justify-center border border-gray-300 hover:border-black disabled:border-gray-200 disabled:text-gray-300 disabled:cursor-not-allowed transition-all duration-300 group"
         >
-          -
+          <FontAwesomeIcon icon={faMinus} className="text-sm group-hover:scale-110 transition-transform duration-300" />
         </button>
         
-        <span className="w-12 text-center font-medium">{item.quantity}</span>
+        <span className="w-16 text-center text-xl font-light text-black tracking-wide">
+          {loading ? <LoadingSpinner size="sm" /> : item.quantity}
+        </span>
         
         <button
           onClick={() => handleQuantityChange(item.quantity + 1)}
           disabled={loading}
-          className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded disabled:opacity-50"
+          className="w-12 h-12 flex items-center justify-center border border-gray-300 hover:border-black disabled:border-gray-200 disabled:text-gray-300 disabled:cursor-not-allowed transition-all duration-300 group"
         >
-          +
+          <FontAwesomeIcon icon={faPlus} className="text-sm group-hover:scale-110 transition-transform duration-300" />
         </button>
       </div>
 
-      <div className="text-lg font-bold text-gray-900">
+      {/* Total Price */}
+      <div className="text-2xl font-light text-black tracking-tight min-w-[120px] text-right">
         ${(product.price * item.quantity).toFixed(2)}
       </div>
 
+      {/* Remove Button */}
       <button
         onClick={handleRemove}
         disabled={loading}
-        className="text-red-600 hover:text-red-800 disabled:opacity-50"
+        className="w-12 h-12 flex items-center justify-center text-gray-400 hover:text-black disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-500 group"
       >
-        Remove
+        <FontAwesomeIcon 
+          icon={faTrash} 
+          className="text-lg group-hover:scale-110 transition-transform duration-300" 
+        />
       </button>
     </div>
   );
