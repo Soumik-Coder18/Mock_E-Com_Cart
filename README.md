@@ -1,6 +1,6 @@
 # TrendNest E-Commerce
 
-A React e-commerce application with premium black and white design.
+A MERN e-commerce application with premium black and white design.
 
 ## Features
 
